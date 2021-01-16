@@ -3,8 +3,11 @@ const router = require('express').Router();
 
 const apiRoutes = require('./api/');
 
-// add require homeroutes and dashboard routes when created
-//add app.use above routes when created. 
+const homeRoutes = require('./home-routes.js');
+// add require dashboard routes when created
+
+router.use('/', homeRoutes);
+//add app.use dashboard routes when created. 
 
 router.use('/api', apiRoutes);
 
