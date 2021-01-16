@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
   Comment.findAll()
-    .then(dbCommentData => res.json(dbCommentData))
+    .then(dbUserData => res.json(dbUserData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -13,16 +13,18 @@ router.get('/', (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
   // expects => {comment_text: "string", user_id: int, post_id: int}
+  if(req.session) {
   Comment.create({
     comment_text: req.body.comment_text,
-    user_id: req.session.user_id,
-    post_id: req.session.post_id
-  })
+    post_id: req.session.post_id,
+    user_id: req.session.user_id
+   })
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
       console.log(err);
       res.status(400).json(err);
     });
+  }
 });
 
 router.delete('/:id', withAuth, (req, res) => {
