@@ -73,7 +73,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.post('/signin', (req, res) => {
+router.post('/login', (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
@@ -98,7 +98,7 @@ router.post('/signin', (req, res) => {
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
 
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+     // res.json({ user: dbUserData, message: 'You are now logged in!' });
       res.redirect('/');
     });
   });
