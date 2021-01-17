@@ -1,5 +1,4 @@
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2>
     Edit Post
   </h2>
@@ -8,6 +7,11 @@
       <label class="form-label" for="post-title">Title:</label>
       <input name="post-title" type="text" value="{{post.title}}" />
     </div>
+
+     <div>
+      <label class="form-label" for="post-tEXT">Text:</label>
+      <textarea name="textbody" id="post-text" 
+        type="text">{{post.textbody}}</textarea>
     <div>
       <button type="submit">Save post</button>
       <button type="button" class="delete-post-btn">Delete post</button>
