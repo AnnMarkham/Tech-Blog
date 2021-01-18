@@ -1,5 +1,5 @@
 <h1> Your Dashboard </h1>
-  <form id="new-post-form">
+  <form class="new-post-form">
   <h3>Create New Post </h3>
   <div class="row mb-3">
     <label for="post-title" class="col-sm-2 col-form-label">Title: </label>
@@ -23,7 +23,7 @@
     <h2>Your Posts</h2>
     <ol>
         {{#each posts as |post|}}
-        <li class="each-post">
+        <li>
             {{> post-info post}}
             <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
         </li>

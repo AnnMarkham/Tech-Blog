@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Vote } = require('../../models');
+const { Post, User, Comment} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all Posts
 router.get('/', (req, res) => {
-    Post.findAll({
+  console.log('======================');
+  Post.findAll({
     attributes: [
       'id',
       'textbody',
@@ -74,7 +75,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'string!', textbody: text, user_id: int}
+  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
     title: req.body.title,
     textbody: req.body.textbody,
@@ -112,7 +113,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
   Post.destroy({
     where: {
