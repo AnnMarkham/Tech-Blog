@@ -117,6 +117,12 @@
     background-color: #ff643d;
   }
   
+  .your-posts{
+    padding: 1%;
+    border-radius: 5px;
+    border: 2px solid rgba(11, 3, 26, 0.582);
+  }
+ 
   .post {
     margin-bottom: 2%;
     line-height: 150%;
@@ -152,6 +158,20 @@
     opacity: .6;
   }
   
+  .meta{
+    font-size: 14px;
+  }
+
+  .created {
+    font-style: italic;
+  }
+
+  #new-post-form{
+    padding: 1%;
+    border-radius: 5px;
+    border: 2px solid rgba(11, 3, 26, 0.582);
+    margin-bottom: 1%;
+  }
   .new-post-form input {
     width: 300px;
   }

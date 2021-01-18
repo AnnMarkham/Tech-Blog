@@ -1,20 +1,21 @@
-<article>
+<sarticle>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2>
     Edit Post
   </h2>
   <form class="edit-post-form">
-    <div>
-      <label class="form-label" for="post-title">Title:</label>
-      <input name="post-title" type="text" value="{{post.title}}" />
+    <input name="post-title" type="text" value="{{post.title}}" />
     </div>
-
-     <div>
-      <label class="form-label" for="post-tEXT">Text:</label>
-      <textarea name="textbody" id="post-text" 
-        type="text">{{post.textbody}}</textarea>
     <div>
+      <textarea class="text-area" name="textbody">{{post.textbody}}</textarea>
+    <div>
+    <div>
+        Created At: {{format_date post.created_at}}
+       |
+       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+    </div>
       <button type="submit">Save post</button>
-      <button type="button" class="delete-post-btn">Delete post</button>
+      <button type="button" class="delete-post-btn">Delete Post</button>
     </div>
   </form>
 </article>
@@ -23,7 +24,6 @@
   <div>
     <textarea name="comment-body"></textarea>
   </div>
-
   <div>
     <button type="submit">add comment</button>
   </div>
